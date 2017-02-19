@@ -1,4 +1,4 @@
-package id.ac.amikom.event.eventamikom.ui;
+package id.ac.amikom.event.eventamikom.ui.login;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
