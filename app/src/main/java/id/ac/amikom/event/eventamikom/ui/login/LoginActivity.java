@@ -1,5 +1,6 @@
 package id.ac.amikom.event.eventamikom.ui.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import id.ac.amikom.event.eventamikom.R;
+import id.ac.amikom.event.eventamikom.ui.home.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     //1. lets declare all view component that created on activity_login.xml
@@ -61,7 +63,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             //both credential are accepted. the apps should move to the next page
             Toast.makeText(this,"login succeed",Toast.LENGTH_SHORT).show();
 
-
+            //this is show you how to move into another page
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
 
         }else{
             Toast.makeText(this,"email or password is not match",Toast.LENGTH_SHORT).show();
