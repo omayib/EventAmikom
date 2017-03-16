@@ -9,9 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import id.ac.amikom.event.eventamikom.R;
+import id.ac.amikom.event.eventamikom.model.EventItem;
 import id.ac.amikom.event.eventamikom.ui.detail.DetailActivity;
 
 public class HomeActivity extends AppCompatActivity {
@@ -21,11 +23,15 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        List<String> fakeEvents = generateFakeEvents();
+        List<String> fakeEvents = generateSimpleFakeEvents();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,fakeEvents);
 
+
+        List<EventItem> fakeCustomEvents = generateCustomFakeEvents();
+        ListViewAdapter customAdapter = new ListViewAdapter(this,R.layout.row_event, fakeCustomEvents);
+
         listView = (ListView) findViewById(R.id.eventListVIew);
-        listView.setAdapter(adapter);
+        listView.setAdapter(customAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -35,10 +41,18 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private List<String> generateFakeEvents(){
+    private List<String> generateSimpleFakeEvents(){
         List<String> events = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             events.add("event acara "+i);
+        }
+        return events;
+    }
+
+    private List<EventItem> generateCustomFakeEvents(){
+        List<EventItem> events = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            events.add(new EventItem("judul event "+i,new Date(),"123","123"));
         }
         return events;
     }

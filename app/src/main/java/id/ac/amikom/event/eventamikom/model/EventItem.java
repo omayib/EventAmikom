@@ -1,5 +1,6 @@
 package id.ac.amikom.event.eventamikom.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -28,8 +29,11 @@ public class EventItem {
     }
 
     public String getDate(){
-        return "";
+        String pattern = "dd/MM/yyyy";
+        SimpleDateFormat simpleFormat = new SimpleDateFormat(pattern);
+        return simpleFormat.format(date);
     }
+
 
     public String getTime() {
         return time;

@@ -11,6 +11,13 @@
         android:id="@+id/rowTitleTextView"
         android:layout_toEndOf="@+id/rowThumbimageView" />
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rowDateTextView"
+        android:layout_below="@id/rowTitleTextView"
+        android:layout_toEndOf="@id/rowThumbimageView"/>
     <ImageView
         android:layout_width="96dp"
         android:layout_height="wrap_content"

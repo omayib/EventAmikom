@@ -36,22 +36,25 @@ public class ListViewAdapter extends ArrayAdapter<EventItem> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         EventItem item = getItem(position);
-
         if (convertView == null){
             LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(resLayout,parent,false);
+
             ViewHolder holder = new ViewHolder();
             holder.titleTextView = (TextView) convertView.findViewById(R.id.rowTitleTextView);
+            holder.dateTextView = (TextView) convertView.findViewById(R.id.rowDateTextView);
 
             convertView.setTag(holder);
         }
-
         ViewHolder holder = (ViewHolder) convertView.getTag();
+        System.out.println("holder: "+holder);
         holder.titleTextView.setText(item.getTitle());
+        holder.dateTextView.setText(item.getDate());
         return convertView;
     }
 
     private static class ViewHolder{
         TextView titleTextView;
+        TextView dateTextView;
     }
 }
